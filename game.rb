@@ -16,11 +16,12 @@ class Game
   end
 
   def play_turn
+    @board.display
     pos = current_player.get_player_move(@board)
     board.make_move(pos, current_player.mark)
     self.switch_players
-    @board.display
     puts "____________________________"
+    system("clear")
   end
 
   def switch_players
@@ -32,11 +33,11 @@ class Game
   end
 
   def run
-    @board.display
      until board.game_over?
        begin
          self.play_turn
        rescue StandardError => e
+         system("clear")
          puts e.message
          retry
        end
