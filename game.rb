@@ -2,6 +2,7 @@ require "byebug"
 require_relative "human_player"
 require_relative "board"
 require_relative "computer_player"
+require "io/console"
 class Game
 
   attr_accessor :current_player
@@ -17,10 +18,13 @@ class Game
 
   def play_turn
     @board.display
+    if self.current_player == player2
+      puts "The computer is thinking..."
+      sleep(2)
+    end
     pos = current_player.get_player_move(@board)
     board.make_move(pos, current_player.mark)
     self.switch_players
-    puts "____________________________"
     system("clear")
   end
 
@@ -33,6 +37,11 @@ class Game
   end
 
   def run
+    system("clear")
+    puts "Hi #{player1.name}, welcome to Tic Tac Toe!"
+    puts "Press any key to begin the game"
+    STDIN.getch
+    system("clear")
      until board.game_over?
        begin
          self.play_turn
@@ -43,22 +52,23 @@ class Game
        end
 
      end
+     @board.display
      if @board.winner
-       puts "#{@board.winner} wins!"
+       winning_player = player1.mark == @board.winner ? player1 : player2
+       puts "#{winning_player.name} wins!"
      else
-       puts "no winner! try again"
+       puts "No winner! The game ends in a tie."
      end
   end
 
 
 end
 
-print "Enter player 1 name: "
-name = gets.chomp.strip
-player1 = HumanPlayer.new(name)
-print "Enter player 2 name: "
-name2 = gets.chomp.strip
-player2 = ComputerPlayer.new
-#player2 = HumanPlayer.new(name2)
-new_game = Game.new(player1, player2)
-new_game.run
+if __FILE__ == $PROGRAM_NAME
+  system("clear")
+  print "What is your name?\n"
+  name = gets.chomp.strip
+  player1 = HumanPlayer.new(name)
+  player2 = ComputerPlayer.new
+  Game.new(player1, player2).run
+end

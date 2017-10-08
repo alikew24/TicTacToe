@@ -5,7 +5,7 @@ class ComputerPlayer
   attr_reader :name
   attr_accessor :mark
   def initialize
-    @name = "computer"
+    @name = "Computer"
   end
 
   def get_player_move(board)

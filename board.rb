@@ -25,8 +25,10 @@ class Board
 
 
   def display
-    grid.each do |rows|
-      rows.each do |col|
+    puts "   0   1   2"
+    grid.each_with_index do |row, idx|
+      print "#{idx} "
+      row.each do |col|
         if !col.nil?
           print "[#{col}]".chomp
         else
@@ -69,8 +71,8 @@ class Board
   end
 
   def make_move(pos, mark)
-    raise 'invalid position!' unless self.valid_pos?(pos)
-    raise 'that spot is taken!' unless self[pos].nil?
+    raise 'Invalid position!' unless self.valid_pos?(pos)
+    raise 'That spot is taken!' unless self[pos].nil?
     self[pos] = mark
   end
 

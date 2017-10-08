@@ -7,7 +7,7 @@ class HumanPlayer
   end
 
   def get_player_move(board)
-    puts " #{name} What position would you like to mark? Please put it in 'row,col' format"
+    puts "#{name} What position would you like to mark? Please put it in 'row,col' format"
     pos = gets.chomp.split(",").map(&:to_i)
     return pos
   end
