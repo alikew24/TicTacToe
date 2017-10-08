@@ -1,5 +1,5 @@
-require "byebug"
 require_relative "array_extension"
+
 class Board
 
   def self.blank_grid

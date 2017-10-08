@@ -1,8 +1,8 @@
-require "byebug"
 require_relative "human_player"
 require_relative "board"
 require_relative "computer_player"
 require "io/console"
+
 class Game
 
   attr_accessor :current_player

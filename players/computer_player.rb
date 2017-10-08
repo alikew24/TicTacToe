@@ -1,6 +1,6 @@
-require "byebug"
 require_relative "board"
 require "deep_clone"
+
 class ComputerPlayer
   attr_reader :name
   attr_accessor :mark

@@ -1,4 +1,3 @@
-require "byebug"
 class HumanPlayer
   attr_reader :name
   attr_accessor :mark
