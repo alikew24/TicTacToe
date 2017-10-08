@@ -15,6 +15,7 @@ Play Tic Tac Toe against a computer! This game uses Ruby and is played in the co
 Learn more about the rules of Tic Tac Toe [here](https://en.wikipedia.org/wiki/Tic-tac-toe).
 
 To play, you simply type in the row number, followed by a comma, and then the column number of the spot where you would like to move. Then, press enter.
+
 Example: 0,0
 
 ## Future Directions
