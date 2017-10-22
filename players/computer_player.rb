@@ -1,4 +1,4 @@
-require_relative "board"
+require "./gameplay/board"
 require "deep_clone"
 
 class ComputerPlayer

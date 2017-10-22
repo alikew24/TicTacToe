@@ -1,6 +1,6 @@
-require_relative "human_player"
-require_relative "board"
-require_relative "computer_player"
+require "players/human_player"
+require "gameplay/board"
+require "players/computer_player"
 require "io/console"
 
 class Game
